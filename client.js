@@ -15,7 +15,15 @@ const connect = function() {
 
   conn.on('connect', (data) => {
     console.log("Successful conencted to game server");
+
+    // setTimeout(() => {
+    //   conn.write("Move: up");
+    // }, 500);
+    // setTimeout(() => {
+    //   conn.write("Move: right");
+    // }, 600);
     conn.write("Name: TKO");
+
   });
 
   conn.on('data', (data) => {
