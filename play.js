@@ -9,17 +9,15 @@ const setupInput = function() {
   stdin.setEncoding('utf8');
   stdin.resume();
 
-  const handleUserInput = function() {
-    stdin.on('data', key => {
-      console.log(key);
-      if (key === '\u0003'){
-        process.exit();
-      }
-    })
-  }();
+  stdin.on('data', handleUserInput(key));
   return stdin;
 }
 
+const handleUserInput = function(key) {
+  if (key === '\u0003'){
+    process.exit();
+  }
+};
 
 console.log('Connecting ...');
 
